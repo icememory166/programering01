@@ -45,16 +45,16 @@ HANGMAN_PICS = ['''
    /|\  |
    / \  |
        ===''']
-words = {'Colors':'red orange yellow green blue indigo violet white black
-      brown'.split(),
-'Shapes':'square triangle rectangle circle ellipse rhombus trapezoid
-      chevron pentagon hexagon septagon octagon'.split(),
-'Fruits':'apple orange lemon lime pear watermelon grape grapefruit cherry
-      banana cantaloupe mango strawberry tomato'.split(),
-'Animals':'bat bear beaver cat cougar crab deer dog donkey duck eagle
+words = {'Colors':'''red orange yellow green blue indigo violet white black
+      brown'''.split(),
+'Shapes':'''square triangle rectangle circle ellipse rhombus trapezoid
+      chevron pentagon hexagon septagon octagon'''.split(),
+'Fruits':'''apple orange lemon lime pear watermelon grape grapefruit cherry
+      banana cantaloupe mango strawberry tomato'''.split(),
+'Animals':'''bat bear beaver cat cougar crab deer dog donkey duck eagle
       fish frog goat leech lion lizard monkey moose mouse otter owl panda
       python rabbit rat shark sheep skunk squid tiger turkey turtle weasel
-      whale wolf wombat zebra'.split()}
+      whale wolf wombat zebra'''.split()}
 
 def getRandomWord(wordlist):
     # this function returns a randpm string from the passed list of strings.
