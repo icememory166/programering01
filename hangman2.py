@@ -56,10 +56,15 @@ words = {'Colors':'''red orange yellow green blue indigo violet white black
       python rabbit rat shark sheep skunk squid tiger turkey turtle weasel
       whale wolf wombat zebra'''.split()}
 
-def getRandomWord(wordlist):
-    # this function returns a randpm string from the passed list of strings.
-    wordindex = random.randint(0, len(wordlist) - 1)
-    return wordlist[wordindex]
+def getRandomWord(wordDict):
+    # This function returns a random string from the passed dictionary of lists of strings and its key.
+    # First, randomly select a key from the dictionary:
+    wordKey = random.choice(list(wordDict.keys()))
+
+    # Second, randomly select a word from the key's list in the dictionary:
+    wordIndex =random.randint(0, len(wordDict[wordKey]) - 1)
+
+    return [wordDict[wordKey] [wordIndex], wordKey]
 
 def displayBoard(missedLetters, correctLetters, secretWord):
     print(HANGMAN_PICS[len(missedLetters)])
