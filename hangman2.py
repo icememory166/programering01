@@ -54,7 +54,7 @@ words = {'Colors':'''red orange yellow green blue indigo violet white black
 'Animals':'''bat bear beaver cat cougar crab deer dog donkey duck eagle
       fish frog goat leech lion lizard monkey moose mouse otter owl panda
       python rabbit rat shark sheep skunk squid tiger turkey turtle weasel
-      whale wolf wombat zebra'''.split()}
+      whale wolf wombat zebra dabknee'''.split()}
 
 def getRandomWord(wordDict):
     # This function returns a random string from the passed dictionary of lists of strings and its key.
