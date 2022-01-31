@@ -118,14 +118,15 @@ if difficulty == 'H':
     del HANGMAN_PICS[8]
     del HANGMAN_PICS[7]
     del HANGMAN_PICS[5]
-    del HANGMAN_PICS[3]        
+    del HANGMAN_PICS[3]
 
 missedLetters = ''
 correctLetters = ''
-secretWord = getRandomWord(words)
+secretWord, secretSet = getRandomWord(words)
 gameIsDone = False
 
 while True:
+    print('The secret word is in the set: ' + secretWord)
     displayBoard(missedLetters, correctLetters, secretWord)
     #Let the player enter a letter.
     guess = getGuess(missedLetters + correctLetters)
@@ -154,6 +155,6 @@ while True:
             missedLetters = ''
             correctLetters = ''
             gameIsDone = False
-            secretWord = getRandomWord(words)
+            secretWord, secretSet = getRandomWord(words)
         else:
             break
