@@ -147,7 +147,7 @@ while True:
     # check if player has guessed too many times and lost.
     if len(missedLetters) == len(HANGMAN_PICS) - 1:
         displayBoard(missedLetters, correctLetters, secretWord)
-        print('You have run out of guesses!\nAfter' + str(len(missedLetters)) + 'missed guesses and ' + str(len(correctLetters)) + f'correct guesses, the word was "{secretWord}"')
+        print('You have run out of guesses!\nAfter ' + str(len(missedLetters)) + ' missed guesses and ' + str(len(correctLetters)) + f' correct guesses, the word was "{secretWord}"')
         gameIsDone = True
     #Ask the player if they want to play again (but only if the game is done.)
     if gameIsDone:
