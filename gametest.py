@@ -1,6 +1,11 @@
 import pygame, sys
+
+clock = pygame.time.Clock()
+
 from pygame.locals import *
 pygame.init() #initiates pygame
+
+pygame.display.set_caption('Test game')
 
 WINDOW_SIZE = (400,400)
 screen = pygame.display.set_mode(WINDOW_SIZE,0,32) #initiates the window
@@ -14,3 +19,4 @@ while True: #game loop
 
 
     pygame.display.update()
+    clock.tick(60)
