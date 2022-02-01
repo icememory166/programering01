@@ -33,4 +33,38 @@ def whoGoesFirst():
     else:
         return 'player'
 
+def makeMove(board, letter, move):
+    board[move] = letter
+
+def isWinner(bo, le):
+    # given a board and a player's letter, this fucntion returns True if that player has won
+    # we use "bo" instead of board and "le" instead of letter so we don't have to type as much.
+    return ((bo[7] == le and bo[8] == le and bo[9] == le) or # across the top
+    (bo[4] == le and bo[5] == le and bo[6] == le) or # Across the middle
+    (bo[1] == le and bo[2] == le and bo[3] == le) or # Across the bottom
+    (bo[7] == le and bo[4] == le and bo[1] == le) or # Down the left side
+    (bo[8] == le and bo[5] == le and bo[2] == le) or # Down the middle
+    (bo[9] == le and bo[6] == le and bo[3] == le) or # Down the right side
+    (bo[7] == le and bo[5] == le and bo[3] == le) or # Diagonal
+    (bo[9] == le and bo[5] == le and bo[1] == le)) # Diagonal
+
+def getBoardCopy(board):
+    # make a copy of the board list and return it
+    boardCopy = []
+    for i in board:
+        boardCopy.append(i)
+    return boardCopy
+
+def isSpaceFree(board,move):
+    # return True if the passed move is free on the board
+    return board[move] == ' '
+
+def getPlayerMove(board):
+    # let the player enter their own move
+    move = ' '
+    while not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
+        print('What is your next move? (1-9)')
+        move = input()
+    return int(move)
+
         
