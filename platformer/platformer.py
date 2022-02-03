@@ -11,7 +11,24 @@ WINDOW_SIZE = (400,400) # set window size
 
 screen = pygame.display.set_mode(WINDOW_SIZE,0,32) # initiates the window
 
-player_image = pygame.image.load('player.png')
+player_image = pygame.image.load('images/player.png')
+
+grass_image = pygame.image.load('grass.png')
+dirt_image = pygame.image.load('dirt.png')
+
+game_map = [['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],
+            ['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],
+            ['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],
+            ['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],
+            ['0','0','0','0','0','0','0','2','2','2','2','2','0','0','0','0','0','0','0'],
+            ['0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0'],
+            ['2','2','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','2','2'],
+            ['1','1','2','2','2','2','2','2','2','2','2','2','2','2','2','2','2','1','1'],
+            ['1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1'],
+            ['1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1'],
+            ['1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1'],
+            ['1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1'],
+            ['1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1','1']]
 
 moving_right = False
 moving_left = False
@@ -27,10 +44,7 @@ while True: # game loop
 
     screen.blit(player_image,player_location)
 
-    if player_location[1] > WINDOW_SIZE[1] - player_image.get_height():
-        player_y_momentum = -player_y_momentum
-    else:
-        player_y_momentum += 0.2
+    player_y_momentum += 0.2
     player_location[1] += player_y_momentum
 
     if moving_right == True:
@@ -40,12 +54,6 @@ while True: # game loop
 
     player_rect.x = player_location[0]
     player_rect.y = player_location[1]
-
-    if player_rect.colliderect(test_rect):
-        pygame.draw.rect(screen,(255,0,0),test_rect)
-    else:
-        pygame.draw.rect(screen,(0,0,0),test_rect)
-
 
     for event in pygame.event.get(): # event loop
         if event.type == QUIT: # check for window quit
