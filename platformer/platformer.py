@@ -39,15 +39,38 @@ def collision_test(rect, tiles):
     for tile in tiles:
         if rect.colliderect(tile):
             hit_list.append(tile)
-    return hit_list                    
+    return hit_list
+
+def move(rect, movement, tiles):   # movement * (x,y)
+    collision_types = {'top': False, 'bottom': False, 'right': False, 'Left': False}
+    rect.x += movement[0]
+    hit_list = collision_test(rect, tile)
+    for tile in hit_list:
+        if movement[0] > 0:
+            rect.right = tile.left
+            collision_types['right'] = True
+        elif movement[0] < 0:
+            rect.left = tile.right
+            collision_types['left'] = True
+    rect.y += movement[1]
+    hit_list = collision_test(rect, tile)
+    for tile in hit_list:
+        if movement[1] > 0:
+            rect.bottom = tile.top
+            collision_types['bottom'] = True
+        elif movement[1] < 0:
+            rect.top = tile.bottom
+            collision_types['top'] = True
+    return rect, collision_types
+
 
 moving_right = False
 moving_left = False
 
-player_location = [50,50]
+
 player_y_momentum = 0
 
-player_rect = pygame.Rect(player_location[0],player_location[1],player_image.get_width(),player_image.get_height())
+player_rect = pygame.Rect(50, 50, player_image.get_width(), player_image.get_height())
 test_rect = pygame.Rect(100,100,100,50)
 
 while True: # game loop
@@ -69,16 +92,21 @@ while True: # game loop
 
     display.blit(player_image,player_location)
 
+
+    player_movement = [0, 0]
+    if moving_right:
+        player_movement[0] += 2
+    if moving_left:
+        player_movement[0] -= 2
+    player_movement[1] +=  player_y_momentum
     player_y_momentum += 0.2
-    player_location[1] += player_y_momentum
+    if player_y_momentum > 3:
+        player_y_momentum = 3
 
-    if moving_right == True:
-        player_location[0] += 4
-    if moving_left == True:
-        player_location[0] -= 4
+    player_rect, collisions = move(player_rect, player_movement, tile_rects)
 
-    player_rect.x = player_location[0]
-    player_rect.y = player_location[1]
+
+    display.blit(player_image, (player_rect.x, player_rect.y))
 
     for event in pygame.event.get(): # event loop
         if event.type == QUIT: # check for window quit
