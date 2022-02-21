@@ -62,7 +62,7 @@ def isSpaceFree(board,move):
 def getPlayerMove(board):
     # let the player enter their own move
     move = ' '
-    while not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
+    while move not in '1 2 3 4 5 6 7 8 9'.split() or not isSpaceFree(board, int(move)):
         print('What is your next move? (1-9)')
         move = input()
     return int(move)
@@ -138,7 +138,7 @@ while True:
                 gameIsPlaying = False
             else:
                 if isBoardFull(theBoard):
-                    drawBoard(theBoard):
+                    drawBoard(theBoard)
                     print("The game is a tie!")
                     break
                 else:
@@ -162,4 +162,4 @@ while True:
 
     print("Do you want to player again? (yes or no)")
     if not input().lower().startswith('y'):
-        break                                                                                        
+        break
