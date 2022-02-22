@@ -59,4 +59,14 @@ while True:
             print("Guess #%s: " % (guessesTaken))
             guess = input()
 
-        print("")    
+        print(getClues(guess, secretNum))
+        guessesTaken += 1
+
+        if guess == secretNum:
+            break
+        if guessesTaken > MAX_GUESS:
+            print("You ran out of guesses. The answer was %s." % (secretNum))
+
+    print("Do you want to play again) (yes or no)")
+    if not input().lower().startswith('y'):
+        break            
