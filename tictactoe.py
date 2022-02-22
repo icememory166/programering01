@@ -55,7 +55,7 @@ def getBoardCopy(board):
         boardCopy.append(i)
     return boardCopy
 
-def isSpaceFree(board,move):
+def isSpaceFree(board, move):
     # return True if the passed move is free on the board
     return board[move] == ' '
 
@@ -102,7 +102,7 @@ def getComputerMove(board, computerLetter):
             if isWinner(boardCopy, playerLetter):
                 return i
     # Try to take one of the corners, if they are free
-    move = chooseRandomMoveFromList(board, [1, 3, 5, 7])
+    move = chooseRandomMoveFromList(board, [1, 3, 7, 9])
     if move != None:
         return move
     # Try to take the center, if it is free
@@ -116,7 +116,7 @@ def isBoardFull(board):
     for i in range(1, 10):
         if isSpaceFree(board, i):
             return False
-        return True
+    return True
 
 print("Welcome to Tic-Tac-Toe!")
 while True:
@@ -126,12 +126,14 @@ while True:
     turn = whoGoesFirst()
     print(f"The {turn} will go first")
     gameIsPlaying = True
+
     while gameIsPlaying:
         if turn == 'player':
             # Player's turn
             drawBoard(theBoard)
             move = getPlayerMove(theBoard)
             makeMove(theBoard, playerLetter, move)
+            
             if isWinner(theBoard, playerLetter):
                 drawBoard(theBoard)
                 print("Hooray! You have won the game")
