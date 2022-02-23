@@ -1,7 +1,7 @@
 import random
 
-NUM_DIGITS = 3
-MAX_GUESS = 10
+NUM_DIGITS = 5
+MAX_GUESS = 15
 
 def getSecretNum():
     # Returns a string of unique random digits that is NUM_DIGITS long
@@ -69,4 +69,4 @@ while True:
 
     print("Do you want to play again) (yes or no)")
     if not input().lower().startswith('y'):
-        break            
+        break
