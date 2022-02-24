@@ -129,9 +129,9 @@ def showInstructions():
  (In the real game, the chests are not visible in the ocean.)
 
  Press enter to continue...''')
-     input()
+    input()
 
-     print('''When you drop a sonar device directly on a chest, you retrieve it and the other
+    print('''When you drop a sonar device directly on a chest, you retrieve it and the other
  sonar devices update to show how far away the next nearest chest is. The chests
  are beyond the range of the sonar device on the left, so it shows an X.
 
@@ -152,7 +152,7 @@ def showInstructions():
  sonar devices. Good luck!
 
  Press enter to continue...''')
-     input()
+    input()
 
 
 
@@ -203,4 +203,4 @@ while True:
 
     print('Do you want to play again? (yes or no)')
     if not input().lower().startswith('y'):
-        sys.exit()                     
+        sys.exit()
