@@ -45,7 +45,7 @@ def drawBoard(board):
 
         # print the numbers across the bottom.
         print()
-        print('   ' + ('0123456789' * 6))
+        print(' ' + ('0123456789' * 6))
         print(tensDigitsLine)
 
 def getRandomChests(numChests):
