@@ -1,4 +1,4 @@
-# Sonar Tresure Hunt
+# Sonar
 
 import random, sys, math
 
@@ -172,7 +172,7 @@ while True:
 
     while sonarDevices > 0:
         # Show sonar device and chest statuses
-        print('You have %s sonar device(s) left. %s treasure chest(s) remaining.' % (sonardevices, len(theChests)))
+        print('You have %s sonar device(s) left. %s treasure chest(s) remaining.' % (sonarDevices, len(theChests)))
 
         x, y = enterPlayerMove(previousMoves)
         previousMoves.append([x, y]) # we must track all moves so that sonar devices can be updated.
