@@ -32,33 +32,33 @@ def drawBoard(board):
     for row in range(15):
         # single digit numbers need to be padded with an extra space
         if row < 10:
-            extraspace = ' '
+            extraSpace = ' '
         else:
-            extraspace = ''
+            extraSpace = ''
 
         # create the string for this row on the board
         boardRow = ''
         for column in range(60):
             boardRow += board[column][row]
 
-        print('%s%s %s %s' % (extraspace, row, boardRow, row))
+        print('%s%s %s %s' % (extraSpace, row, boardRow, row))
 
-        # print the numbers across the bottom
+        # print the numbers across the bottom.
         print()
         print('   ' + ('0123456789' * 6))
         print(tensDigitsLine)
 
 def getRandomChests(numChests):
-    # create a list of chest data structures (two-item lists of x,y int coordinates)
+    # create a list of chest data structures (two-item lists of x,y int coordinates).
     chests = []
     while len(chests) < numChests:
         newChest = [random.randint(0, 59), random.randint(0, 14)]
-        if newChest not in chests: # make sure a chest is not already here
+        if newChest not in chests: # make sure a chest is not already here.
             chests.append(newChest)
     return chests
 
 def isOnBoard(x, y):
-    # Return True if the coordinates are on the board; otherwise, return False
+    # Return True if the coordinates are on the board; otherwise, return False.
     return x >= 0 and x <= 59 and y >= 0 and y <= 14
 
 def makeMove(board, chests, x, y):
@@ -66,28 +66,28 @@ def makeMove(board, chests, x, y):
     # Remove treasure chests from the chests list as they are found
     # Return false if this is an invalid move
     # otherwise, return the string of the result of this move
-    smallestDistance = 100 # Any chest will be close than 100
+    smallestDistance = 100 # Any chest will be close than 100.
     for cx, cy in chests:
         distance = math.sqrt((cx - x) * (cx - x) + (cy - y) * (cy - y))
-        if distance < smallestDistance: # we want the closest treasure chest
+        if distance < smallestDistance: # we want the closest treasure chest.
             smallestDistance = distance
 
     smallestDistance = round(smallestDistance)
 
     if smallestDistance == 0:
-        # xy is directly on a treasure chest
+        # xy is directly on a treasure chest!
         chests.remove([x, y])
         return 'You have found a sunken treasure chest!'
     else:
         if smallestDistance < 10:
             board[x][y] = str(smallestDistance)
-            return 'Treasure chest detected at a distance of %s from the sonar device.' % (smallestDistance)
+            return 'Treasure detected at a distance of %s from the sonar device.' % (smallestDistance)
         else:
             board[x][y] = 'X'
-            return 'Sonar did not detect anything. All treasure chests out of range'
+            return 'Sonar did not detect anything. All treasure chests out of range.'
 
 def enterPlayerMove(previousMoves):
-    # Let the player enter their move. Return a two-item list of int coordinates
+    # Let the player enter their move. Return a two-item list of int coordinates.
     print('Where do you want to drop the next sonar device? (0-59 0-14) (or type quit)')
     while True:
         move = input()
@@ -98,7 +98,7 @@ def enterPlayerMove(previousMoves):
         move = move.split()
         if len(move) == 2 and move[0].isdigit() and move[1].isdigit() and isOnBoard(int(move[0]), int(move[1])):
             if [int(move[0]), int(move[1])] in previousMoves:
-                print('You already moved there')
+                print('You already moved there.')
                 continue
             return [int(move[0]), int(move[1])]
 
@@ -164,36 +164,36 @@ if input().lower().startswith('y'):
 
 while True:
     # Game setup
-    sonardevices = 20
+    sonarDevices = 20
     theBoard = getNewBoard()
-    theChests = getRandomChests()
+    theChests = getRandomChests(3)
     drawBoard(theBoard)
     previousMoves = []
 
-    while sonardevices > 0:
+    while sonarDevices > 0:
         # Show sonar device and chest statuses
-        print('You have %s sonar device(s) left. %s treasure chest(s) remaining' % (sonardevices, len(theChests)))
+        print('You have %s sonar device(s) left. %s treasure chest(s) remaining.' % (sonardevices, len(theChests)))
 
         x, y = enterPlayerMove(previousMoves)
-        previousMoves.append([x, y]) # we must track all moves so that sonar devices can be updated
+        previousMoves.append([x, y]) # we must track all moves so that sonar devices can be updated.
 
         moveResult = makeMove(theBoard, theChests, x, y)
         if moveResult == False:
             continue
         else:
             if moveResult == 'You have found a sunken treasure chest!':
-                # update all the sonar devices currently on the map.
+                # Update all the sonar devices currently on the map.
                 for x, y in previousMoves:
                     makeMove(theBoard, theChests, x, y)
             drawBoard(theBoard)
             print(moveResult)
 
         if len(theChests) == 0:
-            print('You have found all the sunken treasure chests! Congratulations and good game')
+            print('You have found all the sunken treasure chests! Congratulations and good game!')
             break
 
-        sonardevices -= 1
-    if sonardevices == 0:
+        sonarDevices -= 1
+    if sonarDevices == 0:
         print('''we\'ve run out of sonar devices! Now we have to turn the ship around and
                  head for home with tresure chests still out there! Game over''')
 
