@@ -55,3 +55,4 @@ if mode[0] != 'b':
 else:
     for key in range(1, MAX_KEY_SIZE + 1):
         print(key, getTranslatedMessage('decrypt', message, key))
+input("Press enter to finish the program")
