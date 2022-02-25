@@ -6,7 +6,7 @@ def getMode():
     while True:
         print('Do you wish to encrypt or decrypt or brute-force a message?')
         mode = input().lower()
-        if mode in ['encrypt', 'e', 'decrypt', 'd']:
+        if mode in ['encrypt', 'e', 'decrypt', 'd', 'brute', 'b']:
             return mode
         else:
             print('Enter either "encrypt" or "e" or "decrypt" or "d" or "brute" or "b".')
@@ -33,7 +33,7 @@ def getTranslatedMessage(mode, message, key):
         if symbolIndex == -1: # Symbol not found in SYMBOLS
             # just add this character without any change
             translated += symbol
-        else:    
+        else:
             # encrypt or decrypt
             symbolIndex += key
 
