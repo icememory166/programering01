@@ -33,7 +33,7 @@ def getTranslatedMessage(mode, message, key):
         if symbolIndex == -1: # Symbol not found in SYMBOLS
             # just add this character without any change
             translated += symbol
-
+        else:    
             # encrypt or decrypt
             symbolIndex += key
 
@@ -42,7 +42,7 @@ def getTranslatedMessage(mode, message, key):
             elif symbolIndex < 0:
                 symbolIndex += len(SYMBOLS)
 
-            translated += SYMBOLS(symbolIndex)
+            translated += SYMBOLS[symbolIndex]
     return translated
 
 mode = getMode()
@@ -54,4 +54,4 @@ if mode[0] != 'b':
     print(getTranslatedMessage(mode, message, key))
 else:
     for key in range(1, MAX_KEY_SIZE + 1):
-        print(key, getTranslatedMessage('decrypt', message, key))    
+        print(key, getTranslatedMessage('decrypt', message, key))
