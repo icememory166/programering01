@@ -1,8 +1,8 @@
 # Sonar
 
-import random, sys, math
-
-
+import random
+import sys
+import math
 
 def getNewBoard():
     # Create a new 60x15 board data structure
@@ -45,7 +45,7 @@ def drawBoard(board):
 
         # print the numbers across the bottom.
         print()
-        print(' ' + ('0123456789' * 6))
+        print('   ' + ('0123456789' * 6))
         print(tensDigitsLine)
 
 def getRandomChests(numChests):
@@ -193,6 +193,7 @@ while True:
             break
 
         sonarDevices -= 1
+        
     if sonarDevices == 0:
         print('''we\'ve run out of sonar devices! Now we have to turn the ship around and
                  head for home with tresure chests still out there! Game over''')
