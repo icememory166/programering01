@@ -43,10 +43,10 @@ def drawBoard(board):
 
         print('%s%s %s %s' % (extraSpace, row, boardRow, row))
 
-        # print the numbers across the bottom.
-        print()
-        print('   ' + ('0123456789' * 6))
-        print(tensDigitsLine)
+    # print the numbers across the bottom.
+    print()
+    print('   ' + ('0123456789' * 6))
+    print(tensDigitsLine)
 
 def getRandomChests(numChests):
     # create a list of chest data structures (two-item lists of x,y int coordinates).
@@ -193,7 +193,7 @@ while True:
             break
 
         sonarDevices -= 1
-        
+
     if sonarDevices == 0:
         print('''we\'ve run out of sonar devices! Now we have to turn the ship around and
                  head for home with tresure chests still out there! Game over''')
