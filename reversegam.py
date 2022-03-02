@@ -26,4 +26,11 @@ def isValidMove(board, tile, xstart, ystart):
     # Return False if the player's move on space xstart, ystart is invalid
     # If it is a valid move, return a list of spaces that would become the player's if they made a move here
     if board[xstart][ystart] != ' ' or not isOnBoard(xstart, ystart):
-        return False                        
+        return False
+
+    if tile == 'X':
+        otherTile = 'O'
+    else:
+        otherTile = 'X'
+
+    tileToFlip = []                                
