@@ -128,7 +128,7 @@ while True: # game loop
             for tile in game_map[target_chunk]:
                 display.blit(tile_index[tile[1]],(tile[0][0]*16-scroll[0],tile[0][1]*16-scroll[1]))
                 if tile[1] in [1,2]:
-                    tile_rects.append(pygame.Rect(tile[0][0]*16,tile[0][1]*16,16,16))    
+                    tile_rects.append(pygame.Rect(tile[0][0]*16,tile[0][1]*16,16,16))
 
     player_movement = [0,0]
     if moving_right == True:
@@ -210,7 +210,7 @@ while True: # game loop
                 moving_right = False
             if event.key == K_LEFT:
                 moving_left = False
-        
+
     screen.blit(pygame.transform.scale(display,WINDOW_SIZE),(0,0))
     pygame.display.update()
     clock.tick(60)
