@@ -102,4 +102,44 @@ def enterPlayerTile():
     else:
         return ['O', 'X']
 
-            
+def whoGoesFirst():
+    # randomly choose who goes first
+    if random.randint(0, 1) == 0:
+        return 'computer'
+    else:
+        return 'player'
+
+def makeMove(board, tile, xstart, ystart):
+    # place the tile on the board at xstart, ystart and flip any of the opponent's tiles.
+    # Return False if this move is an invaled move; True if it is valid.
+    tilesToFlip = isValidMove(board, tile, xstart, ystart)
+
+    if tilesToFlip == False:
+        return False
+
+    board[xstart][ystart] = tile
+    for x, y in tilesToFlip:
+        board[x][y] = tile
+    return True
+
+def getBoardCopy(board):
+    # make a duplicate of the board list and return it
+    boardCopy = getNewBoard()
+
+    for x in range(WIDTH):
+        for y in range(HEIGHT):
+            boardCopy[x][y] = board[x][y]
+
+            return boardCopy
+
+def isOnCorner(x, y):
+    # Return True if the position is in one of the four corners
+    return (x == o or x == WIDTH - 1) and (y == 0 or y == HEIGHT - 1)
+
+def getPlayerMove(board, playerTile):
+    # Let the player enter their move
+    # Return the move as [x, y] (or return the strings 'hints' or 'quit')
+    DIGITS0TO8 = '1 2 3 4 5 6 7 8'.split()
+    while True:
+        print('Enter your move, "quit" to end the game, or "hints" to toggle hints')
+        move =
