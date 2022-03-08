@@ -137,9 +137,19 @@ def isOnCorner(x, y):
     return (x == o or x == WIDTH - 1) and (y == 0 or y == HEIGHT - 1)
 
 def getPlayerMove(board, playerTile):
-    # Let the player enter their move
+    # let the player enter their move
     # Return the move as [x, y] (or return the strings 'hints' or 'quit')
     DIGITS0TO8 = '1 2 3 4 5 6 7 8'.split()
     while True:
         print('Enter your move, "quit" to end the game, or "hints" to toggle hints')
-        move =
+        move = input().lower()
+        if move == 'quit' or move == 'hints':
+            return move
+
+        if len(move) == 2 and move[0] in DIGITS0TO8 and move[1] in DIGITS0TO8:
+            x = int(move[0]) - 1
+            y = int(move[1]) - 1
+            if isValidMove(board, playerTile, x, y) == False:
+                continue
+            else:
+                break        
