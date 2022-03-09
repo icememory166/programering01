@@ -134,7 +134,7 @@ def getBoardCopy(board):
 
 def isOnCorner(x, y):
     # Return True if the position is in one of the four corners
-    return (x == o or x == WIDTH - 1) and (y == 0 or y == HEIGHT - 1)
+    return (x == 0 or x == WIDTH - 1) and (y == 0 or y == HEIGHT - 1)
 
 def getPlayerMove(board, playerTile):
     # let the player enter their move
@@ -256,4 +256,4 @@ while True:
 
     print('Do you want to play again? (yes or no)')
     if not input().lower().startswith('y'):
-        break        
+        break
