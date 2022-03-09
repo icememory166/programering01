@@ -252,4 +252,8 @@ while True:
     elif scores[playerTile] < scores[computerTile]:
         print('You lost. The computer beat you by %s points.' % (scores[computerTile] - scores[playerTile]))
     else:
-        print('The game was a tie')    
+        print('The game was a tie')
+
+    print('Do you want to play again? (yes or no)')
+    if not input().lower().startswith('y'):
+        break        
