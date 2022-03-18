@@ -1,5 +1,7 @@
 from sys import path
 path.append('..\\packages')
 
-import extra.iota
-print(extra.iota.funI())
+from extra.iota import FunI
+print(FunI())
+
+input()
