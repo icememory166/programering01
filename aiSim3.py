@@ -275,7 +275,7 @@ def playGame(playerTile, computerTile):
                 makeMove(board, computerTile, move[0], move[1])
             turn = 'player'
 
-NUM_GAMES = 10000
+NUM_GAMES = 5000
 xWins = oWins = ties = 0
 print('Welcome to Reversegam!')
 
