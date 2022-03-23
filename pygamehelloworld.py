@@ -39,3 +39,7 @@ pygame.draw.line(windowSurface, BLUE, (60, 120), (120, 120), 4)
 pygame.draw.circle(windowSurface, BLUE, (300, 50), 20, 0)
 
 # draw a red ellipse onto the surface.
+pygame.draw.ellipse(windowSurface, RED, (300, 250, 40, 80), 1)
+
+# Draw the text's background  rectangle onto the surface.
+pygame.draw.rect(windowSurface, RED, (textRect.left - 20, textRect.top - 20, textRect.width + 40, textRect.height + 40))
