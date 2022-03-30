@@ -27,7 +27,7 @@ BLUE = (0, 0, 255)
 # set up the box data structure
 b1 = {'rect':pygame.Rect(300, 80, 50, 100), 'color':RED, 'dir':UPRIGHT}
 b2 = {'rect':pygame.Rect(200, 200, 20 ,20), 'color':GREEN, 'dir':UPLEFT}
-b3 = {'rect':pygame.Rect(100, 150, 60, 60), 'color':BLUE, 'dir': DOWNLEFT}
+b3 = {'rect':pygame.Rect(100, 150, 60, 60), 'color':BLUE, 'dir':DOWNLEFT}
 boxes = [b1, b2, b3]
 
 # run the game loop
@@ -60,27 +60,27 @@ while True:
         if b['rect'].top < 0:
             # the box has moved past the top
             if b['dir'] == UPLEFT:
-                b['dir'] == DOWNLEFT
+                b['dir'] = DOWNLEFT
             if b['dir'] == UPRIGHT:
-                b['dir'] == DOWNRIGHT
+                b['dir'] = DOWNRIGHT
         if b['rect'].bottom > WINDOWHEIGHT:
             # the box has moved past the bottom
             if b['dir'] == DOWNLEFT:
-                b['dir'] == UPLEFT
+                b['dir'] = UPLEFT
             if b['dir'] == DOWNRIGHT:
-                b['dir'] == UPRIGHT
+                b['dir'] = UPRIGHT
         if b['rect'].left < 0:
             # the box has moved past the left side
             if b['dir'] == DOWNLEFT:
-                b['dir'] == DOWNRIGHT
+                b['dir'] = DOWNRIGHT
             if b['dir'] == UPLEFT:
-                b['dir'] == UPRIGHT
+                b['dir'] = UPRIGHT
         if b['rect'].right > WINDOWWIDTH:
             # the box has moved past the right side
             if b['dir'] == DOWNRIGHT:
-                b['dir'] == DOWNLEFT
+                b['dir'] = DOWNLEFT
             if b['dir'] == UPRIGHT:
-                b['dir'] == UPLEFT
+                b['dir'] = UPLEFT
 
         # draw the box onto the surface
         pygame.draw.rect(windowSurface, b['color'], b['rect'])
