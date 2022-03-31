@@ -1,7 +1,7 @@
 import random
 
-NUM_DIGITS = 5
-MAX_GUESS = 15
+NUM_DIGITS = 3
+MAX_GUESS = 10
 
 def getSecretNum():
     # Returns a string of unique random digits that is NUM_DIGITS long
