@@ -1,7 +1,11 @@
 from sys import path
+
 path.append('..\\packages')
 
-from extra.iota import FunI
-print(FunI())
+import extra.good.best.sigma as sig
+import extra.good.alpha as alp
+
+print(sig.FunS())
+print(alp.FunA())
 
 input()
